@@ -14,4 +14,7 @@ Pod::Spec.new do |spec|
   spec.frameworks       = 'Accelerate', 'AVFoundation', 'AudioToolbox', 'CoreMedia', 'CoreVideo', 'MobileCoreServices', 'OpenGLES', 'QuartzCore', 'Security', 'UIKit'
   spec.libraries        = 'c++'
   spec.vendored_libraries = 'CardIO/libCardIO.a', 'CardIO/libopencv_core.a', 'CardIO/libopencv_imgproc.a'
+  spec.xcconfig = {
+      'OTHER_LDFLAGS[sdk=iphoneos*]' => '$(inherited) -l"CardIO" -l"opencv_core" -l"opencv_imgproc"'
+  }
 end
